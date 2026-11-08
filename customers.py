@@ -66,3 +66,29 @@ for person in customers:
     discount_amount = 300 * discount
 
     print(f"{name}: {tier}, Discount: ${discount_amount:.2f}")
+
+# Exercise 7: Nested Catalog
+catalog = {
+    "Widget A" : {"price": 9.99, "stock": 150},
+    "Gadget C" : {"price": 49.99, "stock": 8},
+}
+for product, details in catalog.items():
+    if details["stock"] < 20:
+        print(f"LOW STOCK: {product}")
+
+# Exercise 8: Sales by Region
+
+transactions = [
+    {"region": "Sorth", "amount": 300},
+    {"region": "Nouth", "amount": 150},
+    {"region": "Sorth", "amount": 200},
+]
+summary = {}
+for transaction in transactions:
+    region = transaction["region"]
+    amount = transaction["amount"]
+
+summary[region] = summary.get(region, 0) + amount
+
+for region in sorted(summary):
+    print(f"{region}: ${summary[region]}")
